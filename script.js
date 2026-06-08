@@ -1,40 +1,34 @@
 // Ghost Girl Gems — tiny interactions
 
-// Current year in footer
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Mobile nav toggle
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".nav");
+const pill = document.querySelector(".book-pill");
+
+function closeMenu() {
+  nav.classList.remove("open");
+  pill.classList.remove("show");
+  toggle.classList.remove("open");
+  toggle.setAttribute("aria-expanded", "false");
+}
+
 toggle.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
+  pill.classList.toggle("show", open);
   toggle.classList.toggle("open", open);
   toggle.setAttribute("aria-expanded", String(open));
 });
-// Close the menu after tapping a link
-nav.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => {
-    nav.classList.remove("open");
-    toggle.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-  })
+
+// Close after tapping any link in the menu or the pill
+[...nav.querySelectorAll("a"), pill].forEach((a) =>
+  a.addEventListener("click", closeMenu)
 );
 
-// Scroll-reveal for sections
-const reveals = document.querySelectorAll(
-  ".about, .menu-head, .card, .tile, .book-inner"
-);
-reveals.forEach((el) => el.classList.add("reveal"));
-
-const io = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in");
-        io.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-reveals.forEach((el) => io.observe(el));
+// Demo form — no backend yet; connect to a real booking/contact service later
+document.querySelector(".contact-form")?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Thanks! This is a placeholder form — hook it up to your booking or email service.");
+});

@@ -153,6 +153,21 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 0.9
 .appt-book:hover { background: transparent; color: var(--cream); }
 .panel-note { font-family: var(--mono); font-size: 0.72rem; opacity: 0.5; margin-top: 1.2rem; }
 
+/* ───────── INSTAGRAM FEED ───────── */
+.feed { padding: clamp(3.5rem, 9vh, 6.5rem) clamp(1.25rem, 6vw, 6rem); text-align: center; }
+.feed h2 { color: var(--ink); margin: 0.6rem 0 2.4rem; }
+.ig-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.4rem; max-width: 1080px; margin: 0 auto; justify-items: center; align-items: start;
+}
+.ig-grid .instagram-media {
+  margin: 0 auto !important; min-width: 280px !important; width: 100% !important; max-width: 340px !important;
+}
+.feed-follow {
+  margin-top: 2.6rem; background: var(--maroon); color: var(--cream); border-color: var(--maroon);
+}
+.feed-follow:hover { background: transparent; color: var(--maroon); transform: translateY(-2px); }
+
 /* ───────── CONTACT ───────── */
 .contact { background: var(--dark); color: var(--cream); }
 .contact-inner {

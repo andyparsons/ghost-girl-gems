@@ -165,7 +165,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 0.9
 .contact-links a { color: var(--maroon); font-family: var(--mono); text-decoration: none; line-height: 2.2; }
 .contact-links a:hover { color: var(--cream); }
 
-.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; scroll-margin-top: 100px; }
 .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
 .contact-form label {
   display: flex; flex-direction: column; gap: 0.45rem;

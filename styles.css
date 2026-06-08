@@ -58,18 +58,18 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 0.9
 .btn-outline:hover { background: var(--cream); color: var(--maroon); transform: translateY(-2px); }
 
 /* anchor targets clear the sticky header */
-section[id] { scroll-margin-top: 110px; }
+section[id] { scroll-margin-top: 170px; }
 
 /* ───────── HEADER ───────── */
 .site-header {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; gap: 2rem;
-  padding: 1rem clamp(1.25rem, 4vw, 3.5rem);
+  padding: 0.6rem clamp(1.25rem, 4vw, 3.5rem);
   background: var(--cream);
   border-bottom: 1px solid rgba(28, 28, 28, 0.08);
 }
 .brand { display: inline-flex; align-items: center; }
-.brand img { height: clamp(46px, 6vw, 68px); width: auto; display: block; }
+.brand img { height: clamp(80px, 11vw, 132px); width: auto; display: block; }
 
 .nav { display: flex; gap: 2rem; margin-left: auto; }
 .nav a {
@@ -185,7 +185,7 @@ section[id] { scroll-margin-top: 110px; }
 .contact-links a { color: var(--maroon); font-family: var(--mono); text-decoration: none; line-height: 2.2; }
 .contact-links a:hover { color: var(--cream); }
 
-.contact-form { display: flex; flex-direction: column; gap: 1.1rem; scroll-margin-top: 130px; }
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; scroll-margin-top: 185px; }
 .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
 .contact-form label {
   display: flex; flex-direction: column; gap: 0.45rem;

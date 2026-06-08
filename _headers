@@ -3,9 +3,15 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
+# HTML must always revalidate so new asset versions are picked up immediately
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+
+# CSS/JS are cache-busted via ?v=N in index.html — bump that on every change
 /styles.css
   Cache-Control: public, max-age=3600
-
 /script.js
   Cache-Control: public, max-age=3600
 

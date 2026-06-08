@@ -48,6 +48,11 @@ python3 -m http.server 8000
    - **Build output directory:** `/`
 4. Deploy. Every push to `main` publishes automatically.
 
+> **After editing `styles.css` or `script.js`:** bump the `?v=N` in their
+> `index.html` references (e.g. `styles.css?v=3`). The files are cached for an
+> hour, so without a version bump browsers keep serving the old copy. HTML is
+> set to `no-cache`, so the new reference is picked up on the next visit.
+
 ## To do / hook up
 
 - Real booking link (replace the placeholder form + "Book" buttons)

@@ -18,18 +18,16 @@ The copy and pricing are **placeholder** — swap in real services, rates, and a
 ## Design system
 
 - **Palette:** cream `#FDF8ED`, ink `#1C1C1C`, maroon `#A12B2F`, dark blocks `#1C1612`
-- **Fonts:** ornate blackletter display (currently *UnifrakturMaguntia* as a stand-in), `Roboto Mono` for nav/labels/buttons, `Roboto` for body
+- **Fonts:** display = **Monk Gothic** (by Oliveira 37), self-hosted at `assets/fonts/ghost-display.woff2`; `Roboto Mono` for nav/labels/buttons, `Roboto` for body
 - **Hero:** full-bleed photo with an angled bottom edge + giant blackletter headline
 
-## Swapping in the real headline font
+## Headline font
 
-The display font is wired through a single swap point so the real blackletter
-drops in without touching markup:
-
-1. Add the font file to `assets/fonts/` as `ghost-display.woff2`
-   (or update the path/format in the `@font-face` block at the top of `styles.css`).
-2. That's it — `--display` already prefers `"Ghost Display"` and falls back to
-   UnifrakturMaguntia until the file is present.
+The display face is **Monk Gothic**, served locally via `@font-face` (family
+`"Ghost Display"`) at the top of `styles.css`. `--display` resolves to
+`"Ghost Display", "UnifrakturMaguntia", serif` — UnifrakturMaguntia (loaded from
+Google Fonts) is just the during-load fallback. To replace the headline font,
+swap the file at `assets/fonts/ghost-display.woff2` and bump its `?v=` query.
 
 ## Run locally
 
@@ -53,8 +51,9 @@ python3 -m http.server 8000
 > hour, so without a version bump browsers keep serving the old copy. HTML is
 > set to `no-cache`, so the new reference is picked up on the next visit.
 
-## To do / hook up
+## Status / ideas
 
-- Real booking link (replace the placeholder form + "Book" buttons)
-- Connect the contact form to an email/booking service
-- Swap in the real blackletter font (above)
+- ✅ Contact form wired to Web3Forms → emails `info@ghostgirlgems.com`
+- ✅ Headline font is the real Monk Gothic (self-hosted)
+- Optional: replace the in-page form with a real online-scheduling tool if you
+  want time-slot booking (the "Book" buttons currently jump to the contact form)

@@ -9,8 +9,8 @@
    UnifrakturMaguntia (loaded via Google Fonts in <head>).
 */
 @font-face {
-  font-family: "Ghost Display";
-  src: url("assets/fonts/ghost-display.woff2") format("woff2");
+  font-family: "Ghost Display"; /* Monk Gothic by Oliveira 37 */
+  src: url("assets/fonts/ghost-display.woff2?v=1") format("woff2");
   font-weight: 400;
   font-display: swap;
 }

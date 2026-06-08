@@ -96,7 +96,7 @@ section[id] { scroll-margin-top: 90px; }
 
 /* ───────── HERO ───────── */
 .hero {
-  position: relative; min-height: clamp(560px, 86vh, 900px);
+  position: relative; min-height: clamp(460px, 72vh, 760px);
   display: flex; align-items: center;
   /* angled bottom edge, like the reference */
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.5vw), 0 100%);
@@ -115,7 +115,7 @@ section[id] { scroll-margin-top: 90px; }
 }
 .hero-title {
   color: var(--cream);
-  font-size: clamp(4.5rem, 17vw, 15rem);
+  font-size: clamp(3.25rem, 11.5vw, 10rem);
   letter-spacing: 0.01em;
   text-shadow: 0 6px 30px rgba(0, 0, 0, 0.35);
   margin-bottom: 1.8rem;

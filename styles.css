@@ -184,6 +184,10 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 0.9
   border-color: var(--white); margin-top: 0.4rem;
 }
 .btn-submit:hover { background: var(--maroon); color: var(--cream); border-color: var(--maroon); }
+.form-status { font-family: var(--mono); font-size: 0.82rem; min-height: 1.2em; margin-top: 0.2rem; }
+.form-status.sending { color: var(--cream); opacity: 0.7; }
+.form-status.ok  { color: #9be7a8; }
+.form-status.err { color: #ff9aa2; }
 
 /* ───────── FOOTER ───────── */
 .site-footer { background: var(--cream); padding: clamp(3rem, 7vh, 5rem) clamp(1.25rem, 6vw, 6rem) 2.5rem; }

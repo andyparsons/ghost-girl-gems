@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <link rel="icon" href="assets/logo-stacked.webp" />
 </head>
 <body>
@@ -104,12 +104,18 @@
             learn more about rates on group bookings.
           </p>
           <p class="contact-links">
-            <a href="mailto:contact@ghostgirlgems.com">contact@ghostgirlgems.com</a><br />
+            <a href="mailto:info@ghostgirlgems.com">info@ghostgirlgems.com</a><br />
             <a href="https://instagram.com/pimp.your.teeth" target="_blank" rel="noopener">@pimp.your.teeth</a>
           </p>
         </div>
 
-        <form class="contact-form" id="book" action="#" method="post" novalidate>
+        <form class="contact-form" id="book" action="https://api.web3forms.com/submit" method="post">
+          <!-- Web3Forms: paste your free access key below.
+               Get it at https://web3forms.com using info@ghostgirlgems.com -->
+          <input type="hidden" name="access_key" value="0c0ff3c6-bdd1-413d-9546-fe53c8882497" />
+          <input type="hidden" name="from_name" value="Ghost Girl Gems website" />
+          <!-- honeypot: bots fill this, humans never see it -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="row">
             <label>First Name <span>(required)</span>
               <input type="text" name="first" required />
@@ -131,6 +137,7 @@
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button type="submit" class="btn btn-submit">Submit</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -147,13 +154,13 @@
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <a href="mailto:contact@ghostgirlgems.com">contact@ghostgirlgems.com</a>
+        <a href="mailto:info@ghostgirlgems.com">info@ghostgirlgems.com</a>
         <a href="https://instagram.com/pimp.your.teeth" target="_blank" rel="noopener">@pimp.your.teeth</a>
       </div>
     </div>
     <p class="fine">© <span id="year"></span> Ghost Girl Gems. All rights reserved.</p>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

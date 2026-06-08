@@ -27,8 +27,40 @@ toggle.addEventListener("click", () => {
   a.addEventListener("click", closeMenu)
 );
 
-// Demo form — no backend yet; connect to a real booking/contact service later
-document.querySelector(".contact-form")?.addEventListener("submit", (e) => {
+// Contact form → Web3Forms (emails submissions to info@ghostgirlgems.com)
+const form = document.querySelector(".contact-form");
+const statusEl = document.getElementById("form-status");
+
+function setStatus(msg, kind) {
+  if (!statusEl) return;
+  statusEl.textContent = msg;
+  statusEl.className = "form-status " + kind;
+}
+
+form?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  alert("Thanks! This is a placeholder form — hook it up to your booking or email service.");
+
+  const key = form.querySelector('[name="access_key"]')?.value || "";
+  if (!key || key.startsWith("YOUR_")) {
+    setStatus("Form isn't connected yet — add your Web3Forms access key. Meanwhile, email info@ghostgirlgems.com.", "err");
+    return;
+  }
+
+  setStatus("Sending…", "sending");
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: new FormData(form),
+    });
+    const json = await res.json();
+    if (json.success) {
+      setStatus("Thanks! Your message has been sent. 👻", "ok");
+      form.reset();
+    } else {
+      setStatus("Sorry, something went wrong. Please email info@ghostgirlgems.com.", "err");
+    }
+  } catch {
+    setStatus("Network error. Please email info@ghostgirlgems.com directly.", "err");
+  }
 });

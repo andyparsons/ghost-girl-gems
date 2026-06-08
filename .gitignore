@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Dependencies (none yet, but just in case)
+node_modules/
+
+# Cloudflare / build output
+.wrangler/
+dist/

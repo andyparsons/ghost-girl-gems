@@ -57,6 +57,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 0.9
 .btn-outline { background: transparent; color: var(--cream); border-color: var(--cream); }
 .btn-outline:hover { background: var(--cream); color: var(--maroon); transform: translateY(-2px); }
 
+/* anchor targets clear the sticky header */
+section[id] { scroll-margin-top: 90px; }
+
 /* ───────── HEADER ───────── */
 .site-header {
   position: sticky; top: 0; z-index: 100;

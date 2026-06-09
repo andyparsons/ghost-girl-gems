@@ -183,8 +183,21 @@ section[id] { scroll-margin-top: 110px; }
 .contact-art {
   position: absolute; top: 50%; right: clamp(1.5rem, 7vw, 7rem);
   transform: translateY(-50%);
-  height: clamp(280px, 64%, 500px); width: auto; pointer-events: none; user-select: none;
+  height: clamp(280px, 64%, 500px); pointer-events: none; user-select: none;
 }
+.contact-art img { height: 100%; width: auto; display: block; }
+.speech-bubble {
+  position: absolute; top: -4.25rem; left: 56%; z-index: 2;
+  transform: translateX(-50%) rotate(-4deg);
+  background: var(--cream); color: var(--maroon);
+  border: 2px solid var(--maroon); border-radius: 16px;
+  padding: 0.5rem 0.95rem; text-align: center; line-height: 1.05;
+  font-family: var(--body); font-weight: 500; font-size: clamp(0.82rem, 1.3vw, 1rem);
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.35);
+}
+.speech-bubble::after, .speech-bubble::before { content: ""; position: absolute; width: 0; height: 0; }
+.speech-bubble::after  { bottom: -11px; left: 50%; margin-left: -11px; border: 11px solid transparent; border-bottom: 0; border-top-color: var(--maroon); }
+.speech-bubble::before { bottom: -7px;  left: 50%; margin-left: -8px;  border: 8px solid transparent;  border-bottom: 0; border-top-color: var(--cream); z-index: 1; }
 .contact-panel {
   background: var(--dark); color: var(--cream); width: 62%;
   padding: clamp(3.5rem, 9vh, 6.5rem) clamp(2rem, 5vw, 4rem) clamp(3.5rem, 9vh, 6.5rem) clamp(1.5rem, 6vw, 6rem);

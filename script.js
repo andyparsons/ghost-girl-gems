@@ -3,6 +3,12 @@
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Shrink-on-scroll header
+const siteHeader = document.querySelector(".site-header");
+const onScroll = () => siteHeader.classList.toggle("scrolled", window.scrollY > 30);
+onScroll();
+window.addEventListener("scroll", onScroll, { passive: true });
+
 // Mobile nav toggle
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".nav");

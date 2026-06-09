@@ -172,6 +172,7 @@ section[id] { scroll-margin-top: 110px; }
 }
 .ig-grid .instagram-media {
   margin: 0 auto !important; min-width: 280px !important; width: 100% !important; max-width: 340px !important;
+  min-height: 522px; /* reserve the loaded embed height so the page doesn't shift (keeps #contact anchor stable) */
 }
 .feed-follow {
   margin: 1rem 0 2.4rem; background: var(--maroon); color: var(--cream); border-color: var(--maroon);

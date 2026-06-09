@@ -3,6 +3,42 @@
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Logo always returns to the very top of the home page
+const brand = document.querySelector(".brand");
+if (brand) {
+  brand.addEventListener("click", (e) => {
+    // On the home page the href is "#top" — scroll to the very top (works on
+    // repeat clicks too). On other pages it's "index.html#top" — let it navigate.
+    if (brand.getAttribute("href").charAt(0) === "#") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", location.pathname);
+    }
+  });
+}
+
+// Re-align to a hash target as async content (Instagram embeds) loads and
+// shifts the layout — e.g. landing on index.html#contact from the About page.
+// Keeps the target in view until the page settles, but yields the moment the
+// user scrolls themselves.
+if (location.hash) {
+  let userMoved = false;
+  const align = () => {
+    if (userMoved || !location.hash) return;
+    const el = document.querySelector(location.hash);
+    if (el) el.scrollIntoView({ block: "start", behavior: "instant" });
+  };
+  ["wheel", "touchstart", "keydown"].forEach((e) =>
+    window.addEventListener(e, () => { userMoved = true; }, { passive: true, once: true })
+  );
+  window.addEventListener("load", align);
+  // Re-align as Instagram embeds load and grow the page (can take several seconds)
+  const ro = "ResizeObserver" in window ? new ResizeObserver(align) : null;
+  if (ro) ro.observe(document.body);
+  [300, 800, 1500, 2500, 4000, 6000, 9000].forEach((t) => setTimeout(align, t));
+  setTimeout(() => ro && ro.disconnect(), 10000);
+}
+
 // Shrink-on-scroll header
 const siteHeader = document.querySelector(".site-header");
 const onScroll = () => siteHeader.classList.toggle("scrolled", window.scrollY > 30);

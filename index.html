@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="styles.css?v=20" />
   <link rel="icon" href="assets/logo-stacked.webp" />
 </head>
 <body>
@@ -101,16 +101,12 @@
 
     <!-- ───────────────── CONTACT / GET IN TOUCH ───────────────── -->
     <section class="contact" id="contact">
-      <div class="contact-inner">
+      <div class="contact-panel">
         <div class="contact-intro">
           <h2>Get in Touch</h2>
           <p>
             Interested in booking for a private event or party? Reach out to
             learn more about rates on group bookings.
-          </p>
-          <p class="contact-links">
-            <a href="mailto:info@ghostgirlgems.com">info@ghostgirlgems.com</a><br />
-            <a href="https://instagram.com/ghostgirlgems" target="_blank" rel="noopener">@ghostgirlgems</a>
           </p>
         </div>
 
@@ -122,29 +118,22 @@
           <!-- honeypot: bots fill this, humans never see it -->
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="row">
-            <label>First Name <span>(required)</span>
-              <input type="text" name="first" required />
+            <label>First Name              <input type="text" name="first" required />
             </label>
-            <label>Last Name <span>(required)</span>
-              <input type="text" name="last" required />
+            <label>Last Name              <input type="text" name="last" required />
             </label>
           </div>
-          <label>Email <span>(required)</span>
-            <input type="email" name="email" required />
+          <label>Email            <input type="email" name="email" required />
           </label>
-          <label class="checkbox">
-            <input type="checkbox" name="signup" /> Sign up for news and updates
+          <label>Subject            <input type="text" name="subject" required />
           </label>
-          <label>Subject <span>(required)</span>
-            <input type="text" name="subject" required />
-          </label>
-          <label>Message <span>(required)</span>
-            <textarea name="message" rows="4" required></textarea>
+          <label>Message            <textarea name="message" rows="4" required></textarea>
           </label>
           <button type="submit" class="btn btn-submit">Submit</button>
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
+      <img src="assets/contact-art.png?v=2" alt="" class="contact-art" aria-hidden="true" />
     </section>
   </main>
 

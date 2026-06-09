@@ -179,18 +179,22 @@ section[id] { scroll-margin-top: 110px; }
 .feed-follow:hover { background: transparent; color: var(--maroon); transform: translateY(-2px); }
 
 /* ───────── CONTACT ───────── */
-.contact { background: var(--dark); color: var(--cream); }
-.contact-inner {
-  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: start;
-  padding: clamp(3.5rem, 9vh, 6.5rem) clamp(1.25rem, 6vw, 6rem);
+.contact { background: var(--cream); color: var(--ink); position: relative; overflow: hidden; }
+.contact-art {
+  position: absolute; top: 50%; right: clamp(1.5rem, 7vw, 7rem);
+  transform: translateY(-50%);
+  height: clamp(280px, 64%, 500px); width: auto; pointer-events: none; user-select: none;
+}
+.contact-panel {
+  background: var(--dark); color: var(--cream); width: 62%;
+  padding: clamp(3.5rem, 9vh, 6.5rem) clamp(2rem, 5vw, 4rem) clamp(3.5rem, 9vh, 6.5rem) clamp(1.5rem, 6vw, 6rem);
+  /* diagonal right edge — cream shows through on the right (room for an image) */
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
 }
 .contact-intro h2 { font-size: clamp(2.6rem, 6vw, 4.4rem); color: var(--cream); margin-bottom: 1.2rem; }
-.contact-intro p { opacity: 0.8; max-width: 36ch; margin-bottom: 1.4rem; }
-.contact-links a { color: var(--maroon); font-family: var(--mono); text-decoration: none; line-height: 2.2; }
-.contact-links a:hover { color: var(--cream); }
+.contact-intro p { opacity: 0.85; max-width: 52ch; margin-bottom: 0; }
 
-.contact-form { display: flex; flex-direction: column; gap: 1.1rem; scroll-margin-top: 125px; }
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; max-width: 440px; margin-top: 2rem; scroll-margin-top: 125px; }
 .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
 .contact-form label {
   display: flex; flex-direction: column; gap: 0.45rem;
@@ -264,7 +268,10 @@ section[id] { scroll-margin-top: 110px; }
 
 /* ───────── RESPONSIVE ───────── */
 @media (max-width: 880px) {
-  .schedule, .contact-inner { grid-template-columns: 1fr; }
+  .schedule { grid-template-columns: 1fr; }
+  .contact-panel { width: 100%; clip-path: none; padding-right: clamp(1.25rem, 6vw, 6rem); }
+  .contact-form { max-width: none; }
+  .contact-art { display: none; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .foot-logo { grid-column: 1 / -1; }
 }

@@ -39,11 +39,38 @@ if (location.hash) {
   setTimeout(() => ro && ro.disconnect(), 10000);
 }
 
-// Shrink-on-scroll header
+// Fixed shrink-on-scroll header.
+// The header is position:fixed (out of flow), so shrinking it never reflows the
+// page — that reflow was what made the logo flicker near the threshold. We
+// reserve its full height as body padding, and use a hysteresis gap so the
+// toggle can't oscillate.
 const siteHeader = document.querySelector(".site-header");
-const onScroll = () => siteHeader.classList.toggle("scrolled", window.scrollY > 30);
+
+const logoImg = siteHeader.querySelector("img");
+
+function reserveHeaderSpace() {
+  if (logoImg && !logoImg.complete) return; // wait for logo; CSS fallback covers it meanwhile
+  const was = siteHeader.classList.contains("scrolled");
+  siteHeader.classList.remove("scrolled");                 // measure full size
+  document.body.style.paddingTop = siteHeader.offsetHeight + "px";
+  if (was) siteHeader.classList.add("scrolled");
+}
+
+const onScroll = () => {
+  const y = window.scrollY;
+  if (!siteHeader.classList.contains("scrolled")) {
+    if (y > 60) siteHeader.classList.add("scrolled");
+  } else if (y < 20) {
+    siteHeader.classList.remove("scrolled");
+  }
+};
+
+reserveHeaderSpace();
 onScroll();
+if (logoImg && !logoImg.complete) logoImg.addEventListener("load", reserveHeaderSpace);
+window.addEventListener("load", reserveHeaderSpace);
 window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("resize", reserveHeaderSpace);
 
 // Mobile nav toggle
 const toggle = document.querySelector(".nav-toggle");

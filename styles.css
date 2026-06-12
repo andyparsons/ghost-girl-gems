@@ -28,7 +28,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-anchor: none; }
 
 body {
   font-family: var(--body);
@@ -37,6 +37,8 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* reserve space for the fixed header (JS sets the exact value); prevents FOUC */
+  padding-top: calc(clamp(96px, 13.2vw, 158px) + 1.45rem);
 }
 
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 0.95; }
@@ -62,7 +64,7 @@ section[id] { scroll-margin-top: 110px; }
 
 /* ───────── HEADER ───────── */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; gap: 2rem;
   padding: 0.6rem clamp(1.25rem, 4vw, 3.5rem);
   background: var(--cream);
